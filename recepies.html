@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cooking Easy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Cooking</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="home4.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="recepies.html">Recipes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="chefs.html">Famous Chefs</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </nav>
+</div>
+
+   <main>
+
+    <ul id="recipe-list"></ul>
+    <div id="recipe-details"></div>
+   </main>
+
+   
+    <footer>
+        <p>&copy; 2023 Cooking Website</p>
+    </footer>
+<script>
+
+const recipes = [
+    {
+        title: "Spaghetti Carbonara",
+        ingredients: ["Spaghetti", "Eggs", "Pancetta", "Parmesan Cheese"],
+        instructions: "Cook spaghetti, fry pancetta, mix with eggs and cheese.",
+	img: "spaghetti.jpg",
+    },
+    {
+        title: "Homemade Pizza",
+        ingredients: ["Pizza Dough", "Tomato Sauce", "Mozzarella Cheese", "Toppings"],
+        instructions: "Roll out dough, add sauce, cheese, and toppings. Bake until crispy.",
+	img: "pizza.jpg",
+    },
+    {
+        title: "Chocolate Cake",
+        ingredients: ["Flour", "Sugar", "Cocoa Powder", "Eggs", "Milk"],
+        instructions: "Mix dry ingredients, add eggs and milk, bake until a toothpick comes out clean.",
+	img: "cake.jpg",
+    },
+    {
+        title: "Chicken Alfredo",
+        ingredients: ["Fettuccine Pasta", "Chicken Breasts", "Heavy Cream", "Parmesan Cheese"],
+        instructions: "Cook pasta, sauté chicken, make creamy Alfredo sauce, mix and serve.",
+	img: "alfredo.jpg",
+    },
+    {
+        title: "Greek Salad",
+        ingredients: ["Cucumbers", "Tomatoes", "Feta Cheese", "Olives", "Olive Oil"],
+        instructions: "Chop vegetables, add feta and olives, drizzle with olive oil, and mix.",
+	img: "salad.jpg",
+    },
+    {
+        title: "Mango Smoothie",
+        ingredients: ["Mango", "Yogurt", "Honey", "Ice"],
+        instructions: "Blend mango, yogurt, honey, and ice until smooth and creamy.",
+	img: "mango.jpg",
+    },
+];
+
+document.addEventListener("DOMContentLoaded", function () {
+    const recipeList = document.getElementById("recipe-list");
+    const recipeDetails = document.getElementById("recipe-details");
+
+    recipes.forEach((recipe, index) => {
+        const recipeItem = document.createElement("li");
+        recipeItem.textContent = recipe.title;
+        recipeItem.addEventListener("click", () => displayRecipeDetails(recipe, index));
+        recipeItem.addEventListener("mouseover", () => highlightRecipe(recipeItem));
+        recipeItem.addEventListener("keypress", (event) => {
+            if (event.key === "Enter") {
+                displayRecipeDetails(recipe, index);
+            }
+        });
+
+        recipeList.appendChild(recipeItem);
+    });
+
+    function displayRecipeDetails(recipe, index) {
+        recipeDetails.innerHTML = `
+            <h2>${recipe.title}</h2>
+	    <img src="${recipe.img}" alt="${recipe.title}" class="recipe-image">
+            <h3>Ingredients:</h3>
+            <ul>${recipe.ingredients.map((ingredient) => `<li>${ingredient}</li>`).join("")}</ul>
+            <h3>Instructions:</h3>
+            <p>${recipe.instructions}</p>
+        `;
+
+        recipeList.children[index].classList.add("selected");
+    }
+
+    function highlightRecipe(recipeItem) {
+        recipeItem.classList.add("hovered");
+    }
+});
+
+</script>
+</body>
+</html>

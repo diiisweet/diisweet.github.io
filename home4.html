@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cooking Easy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+        <div class="container-fluid">
+        <a class="navbar-brand" href="">Cooking</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+        </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="home4.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="recepies.html">Recipes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="chefs.html">Famous Chefs</a>
+        </li>
+        </ul>
+    </div>
+  </div>
+</nav>
+</div>
+<div class="container">
+  <img src="ph.jpg" alt="bg" style="width:100%;">
+  <div class="content">
+<br> <br> <br> <br>
+    <h1>Make yourself something yummy</h1>
+    <h3>with our recipes even a beginner can be a chef!</h3>
+  </div>
+</div>
+<audio id="recipe-audio" src="bg.mp3"></audio>
+<button id="play-sound">Play Sound</button>
+    <main>
+        <section>
+<br> <br> <hr> <br> <br>
+<div class="container">
+<div class="icons">
+    <i class="fas fa-utensils"></i>
+    <i class="fas fa-pizza-slice"></i> 
+    <i class="fas fa-fish"></i> 
+    <i class="fas fa-egg"></i>
+</div> </div>
+<br> <br>
+            <div class="container">
+    <div class="row">
+        <div class="col">
+<div class="card" style="width: 18rem;">
+    <img src="ph2.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title"><b>Mastering the Art of Cooking"</b></h5>
+        <p class="card-text">Cooking is not just about preparing food; it's a creative art. Every dish you create is a canvas, and the ingredients are your colors. Whether it's a delicate soufflé or a hearty stew, the kitchen is your studio. Embrace the magic of cooking and turn every meal into a masterpiece.</p>
+        
+    </div>
+</div> </div>
+        <div class="col">
+<div class="card" style="width: 18rem;">
+    <img src="ph3.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title"><b>The Joy of Homemade Meals</b></h5>
+        <p class="card-text">In a world of fast food and takeout, there's something truly special about a homemade meal. Cooking allows you to infuse your dishes with love, care, and your unique flavor. So, put on your apron, fire up the stove, and savor the joy of creating delicious, comforting meals for yourself and your loved ones.</p>
+       
+    </div>
+</div>
+</div>
+        <div class="col">
+<div class="card" style="width: 18rem;">
+    <img src="ph4.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title"><b>Food: A Universal Language</b></h5>
+        <p class="card-text">Cooking is a language understood by all. It transcends borders, cultures, and backgrounds. It's a way to connect with people, share stories, and create memories. So, explore the world's diverse cuisines and let food be your passport to new experiences and friendships.</p>
+    </div>
+</div>
+</div>
+    </div>
+</div>
+        </section>
+<br> <br>
+    </main>
+
+   
+    <footer>
+        <p>&copy; 2023 Cooking Website</p>
+    </footer>
+<script>
+const playSoundButton = document.getElementById("play-sound");
+const recipeAudio = document.getElementById("recipe-audio");
+
+playSoundButton.addEventListener("click", function () {
+  recipeAudio.play(); 
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const cardTitles = document.querySelectorAll(".card-title");
+    const cardTexts = document.querySelectorAll(".card-text");
+
+    cardTitles.forEach((title, index) => {
+        title.addEventListener("mouseover", () => {
+            title.style.color = "#FF5733"; 
+            cardTexts[index].style.display = "block"; 
+        });
+
+        title.addEventListener("mouseout", () => {
+            title.style.color = "black"; 
+            cardTexts[index].style.display = "none"; 
+        });
+    });
+});
+</script>
+</body>
+</html>
